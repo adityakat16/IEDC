@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Little Lemon - Booking</title>
+    <meta property="og:title" content="Our Menu">
+    <meta property="og:type"  content="website">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url"   content="https://littlelemon/">
+    <meta property="og:description" content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Little Lemon">
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <div id="nav-container"></div>
+    <main id="Booking">
+    <h1 id="booking">Book a Table</h1>
+    <form method="post">
+        <div>
+            <label for="booking_date">Booking Date</label>
+            <input type="date" name="booking_date" id="booking_date">
+        </div>
+        <div>
+            <label for="booking_people">Number of People</label>
+            <input type="range" min="2" max="10" value="4" name="booking_people" id="booking_people" oninput=" this.nextElementSibling.value = this.value">
+            <output>4</output>
+        </div>
+        <div>
+            <label for="booking_location">Location</label>
+            <input list="locations" name="booking_location" id="booking_location">
+            <datalist id="locations">
+                <option value="Downtown"></option>
+                <option value="Uptown"></option>
+            </datalist>
+        </div>
+        <div>
+            <label for="tnc">
+            <input id="tnc" type="checkbox" required>I Agree To the <a href="terms.html">Terms and Conditions</a>
+            </label>
+        </div>
+        <button type="submit" id="book_table_button">Book Table</button>
+    </form>
+</main>
+<script>
+    fetch('Navbar.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('nav-container').innerHTML = data;
+  });
+</script>
+</body>
+<footer>
+    <div id="footer"></div>
+    <script>
+        fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+    </script>
+</footer>
+</html>
