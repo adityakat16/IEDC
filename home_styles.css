@@ -661,8 +661,6 @@ h3{
     .team-member {
         min-width: 0;
         padding: 18px 10px;
-        border: 1px solid #333;
-        background: linear-gradient(145deg, #111, #070707);
     }
 
     .member-photo {
