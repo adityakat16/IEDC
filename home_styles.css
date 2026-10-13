@@ -261,6 +261,7 @@ h3{
 
 .team-member {
     text-align: center;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .member-photo {
@@ -278,6 +279,27 @@ h3{
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .team-member:hover {
+        transform: translateY(-6px);
+        background-color: #111;
+        box-shadow: 0 12px 28px rgba(69, 136, 141, 0.2);
+    }
+
+    .team-member:hover .member-photo img {
+        transform: scale(1.06);
+        filter: saturate(1.12);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .team-member,
+    .member-photo img {
+        transition: none;
+    }
 }
 
 .team-member h2 {
