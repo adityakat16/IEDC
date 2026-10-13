@@ -100,9 +100,10 @@ h3{
     position: fixed;
     flex-direction: row;
     flex-wrap: nowrap;             
-    justify-content: space-between; 
+    justify-content: flex-start;
     align-items: center;            
-    padding: 10px 10vw 0 0;
+    gap: 3vw;
+    padding: 0.75vw 4vw;
     box-sizing: border-box;
     width: 100%;
     top: 0;
@@ -113,22 +114,36 @@ h3{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 #logo{
-  display: block;
-  width: auto;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 6vw;
   height: 6vw;
-  margin-left: 1vw;
+  margin: 0;
+}
+.logo-image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .nav_links {
     display: flex;
-    gap: 2.75rem;
+    flex: 0 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2.5vw;
+    margin-left: auto;
 }
 .nav_links > a{
     display: block;
     backdrop-filter: 10px;        
-    padding: 0;
+    padding: 0.5vw 0;
     text-decoration: none;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: larger;
+    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+    white-space: nowrap;
     text-shadow: 0 0 15px #152018, 0 0 30px #FFEEBB;
     color: var(--primary);
     transition: background 0.3s;
@@ -187,6 +202,25 @@ h3{
     transform: translateY(-3px);
     opacity: 0.7;
 }
+.home-image {
+    display: flex;
+    justify-content: center;
+    padding: 0 5vw 8vh;
+}
+
+.home-image img {
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+}
+
+.home-intro {
+    max-width: 1100px;
+    margin: 0 auto 8vh;
+    line-height: 1.5;
+}
+
 .team-section {
     width: 100%;
     min-height: 100vh;
@@ -497,9 +531,13 @@ h3{
 /*For mobile Optimisations*/
 @media (max-width: 900px) {
 
-    .team-container {
+    .team-container-member {
         grid-template-columns: repeat(2, 1fr);
         gap: 60px 20px;
+    }
+
+    .team-container-nodal {
+        gap: 30px;
     }
 
     .member-photo {
@@ -516,14 +554,193 @@ h3{
         padding-right: 20px;
     }
 
-    .team-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
+}
+
+@media (max-width: 600px) {
+    #nav_bar {
+        gap: 3vw;
+        padding: 1.5vw 4vw;
+        min-height: 13vw;
+    }
+
+    #logo {
+        width: 9vw;
+        height: 9vw;
+    }
+
+    .nav_links {
+        flex: 0 1 auto;
+        justify-content: flex-end;
+        gap: 3vw;
+    }
+
+    .nav_links > a {
+        font-family: "IBM Plex Sans", Arial, sans-serif;
+        font-size: clamp(0.65rem, 3.2vw, 0.9rem);
+        font-weight: 600;
+        line-height: 1.2;
+        text-align: center;
+        white-space: nowrap;
+        text-shadow: none;
+    }
+
+    .nav_links > a:hover {
+        text-shadow: none;
+    }
+
+    .sections {
+        padding: 88px 20px 0;
+    }
+
+    .events-section {
+        min-height: 0;
+        padding: 88px 20px 48px;
+    }
+
+    .events-heading {
+        margin-bottom: 36px;
+    }
+
+    .section-label {
+        font-size: 11px;
+    }
+
+    .events-heading h1 {
+        font-size: clamp(52px, 16vw, 76px);
+    }
+
+    .home-image {
+        padding: 0 16px 32px;
+    }
+
+    .home-intro {
+        padding: 0 20px;
+        margin-bottom: 48px;
+        font-size: clamp(1.15rem, 5vw, 1.45rem);
+        line-height: 1.55;
+    }
+
+    .team-section {
+        min-height: 0;
+        padding: 36px 16px 56px;
+    }
+
+    .team-title {
+        font-size: clamp(38px, 10vw, 56px);
+        margin-bottom: 36px;
+    }
+
+    .team-container-member,
+    .team-container-nodal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 14px;
+    }
+
+    .team-member {
+        min-width: 0;
+        padding: 18px 10px;
+        border: 1px solid #333;
+        background: linear-gradient(145deg, #111, #070707);
     }
 
     .member-photo {
-        width: 200px;
-        height: 200px;
+        width: min(100%, 132px);
+        height: auto;
+        aspect-ratio: 1;
+        margin-bottom: 16px;
     }
 
+    .team-member h2 {
+        font-size: clamp(15px, 4vw, 19px);
+        overflow-wrap: anywhere;
+    }
+
+    .team-member p {
+        font-size: clamp(13px, 3.4vw, 15px);
+        line-height: 1.35;
+    }
+
+    .event-list {
+        gap: 18px;
+    }
+
+    .event-card {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .event-number {
+        top: 17px;
+        left: auto;
+        right: 18px;
+    }
+
+    .event-left {
+        padding: 52px 22px 20px;
+        border-right: 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .event-date {
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+
+    .event-left h2 {
+        font-size: clamp(38px, 11vw, 52px);
+    }
+
+    .event-right {
+        padding: 20px 22px 24px;
+    }
+
+    .event-right p {
+        font-size: 16px;
+        line-height: 1.55;
+        margin-bottom: 22px;
+    }
+
+    .register-btn {
+        justify-content: space-between;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 15px;
+    }
+
+    #footermain {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 36px 16px 28px;
+    }
+
+    #copyrights,
+    #footercontact {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    #socials {
+        gap: 26px;
+    }
+}
+
+@media (max-width: 360px) {
+    #nav_bar {
+        padding-right: 3vw;
+        padding-left: 3vw;
+        gap: 2.5vw;
+    }
+
+    .nav_links {
+        gap: 2vw;
+    }
+
+    .nav_links > a {
+        font-size: 3vw;
+    }
+
+    .team-member {
+        padding: 14px 7px;
+    }
 }
