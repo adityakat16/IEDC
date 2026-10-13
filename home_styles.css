@@ -205,12 +205,22 @@ h3{
     font-family: "Fraunces", serif;
 }
 
-.team-container {
+.team-container-member {
     width: 100%;
     max-width: 1400px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    align-items: start;
+}
+
+.team-container-nodal {
+    width: 100%;
+    max-width:100vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 50px;
     align-items: start;
 }
